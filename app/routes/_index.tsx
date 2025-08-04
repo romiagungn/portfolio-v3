@@ -2,11 +2,12 @@ import { PageLayout } from "~/components/layout/PageLayout";
 import GradienBackground from "~/components/layout/GradientBackground";
 import ExperienceSection from "~/components/section/ExperienceSection";
 import HeroSection from "~/components/section/Hero";
-import ProjectShowcase from "~/components/section/ProjectShowcase";
 import ReviewsGrid from "~/components/section/ReviewGrid";
-import CommunitySection from "~/components/section/Community";
+import AreaOfExpertise from "~/components/section/AreaOfExpertise";
 import AboutMe from "~/components/section/AboutMe";
-import Marquee from "~/components/ui/Marquee";
+import Blogs from "~/components/section/Blogs";
+import ProjectShowcase from "~/components/section/ProjectShowcase";
+import ParallaxScrollVelocity from "~/components/ui/paralax/ParallaxScrollVelocity";
 
 export default function Index() {
   return (
@@ -14,10 +15,11 @@ export default function Index() {
       <GradienBackground>
         <HeroSection />
       </GradienBackground>
-      <ProjectShowcase />
       <AboutMe />
-      <CommunitySection />
-      <Marquee />
+      <ProjectShowcase />
+      <Blogs/>
+      <AreaOfExpertise />
+      <ParallaxScrollVelocity />
       <ExperienceSection />
       <ReviewsGrid />
     </PageLayout>

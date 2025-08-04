@@ -1,4 +1,4 @@
-import ReviewCard from "../ui/ReviewCard";
+import ReviewCard from "../ui/card/ReviewCard";
 import ShinyText from "../ui/text/ShinyText";
 
 const reviews = [

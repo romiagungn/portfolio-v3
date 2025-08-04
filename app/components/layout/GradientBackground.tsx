@@ -11,7 +11,7 @@ const GradienBackground: FC<GradienBackgroundProps> = ({
 }) => {
   return (
     <div
-      className={`relative w-full min-h-screen bg-white dark:bg-neutral-900 p-40 ${className}`}
+      className={`relative w-full min-h-screen bg-white dark:bg-neutral-900 p-5 py-40 md:p-40 ${className}`}
     >
       {/* Lapisan Latar Belakang dengan dan Gradien */}
       <div

@@ -1,8 +1,8 @@
-import ProfileCard from "../ui/ProfileCard";
+import ProfileCard from "../ui/card/ProfileCard";
 
 const ExperienceSection = () => {
   const user = {
-    imageUrl: "/avatar.png",
+    imageUrl: "/images/avatar.png",
     name: "Albar Moerhamsa",
     title: "Frontend Engineer",
     description: "A Product Designer who focuses on simplicity & usability.",
@@ -11,7 +11,7 @@ const ExperienceSection = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between gap-12 py-12 lg:py-20">
+    <div className="w-screen flex flex-col justify-between gap-12 py-12 lg:py-20 overflow-hidden">
       <div className="relative h-screen cursor-default text-sm tracking-normal select-none">
         <div
           className="relative size-full"
@@ -42,7 +42,7 @@ const ExperienceSection = () => {
               }}
             />
 
-            <div className="absolute flex space-x-10 top-52 left-1/2 w-[744px] -translate-x-1/2 space-y-2">
+            <div className="absolute overflow-x-scroll flex space-x-10 top-52 left-1/2 w-[744px] -translate-x-1/2 space-y-2">
               <ProfileCard
                 variant="solid"
                 {...user}

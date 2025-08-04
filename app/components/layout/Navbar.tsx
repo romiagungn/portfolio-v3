@@ -314,7 +314,7 @@ export default function Navbar() {
                           isActive: false,
                         })} flex items-center gap-1`}
                       >
-                        Interviews <ChevronDownIcon />
+                        Mini Program <ChevronDownIcon />
                       </button>
                       <AnimatePresence>
                         {openDropdown === "interviews-desktop" && (
@@ -435,7 +435,7 @@ export default function Navbar() {
                         )}
                       </AnimatePresence>
                     </div>
-                    <NavLink to="/salaries" className={navLinkClasses}>
+                    <NavLink to="/about" className={navLinkClasses}>
                       <span className="flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-[#BFF163]"></span>
                         About

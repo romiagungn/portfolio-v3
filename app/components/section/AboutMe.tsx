@@ -7,7 +7,7 @@ const AboutMe = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full flex flex-col justify-center items-center text-center space-y-5"
+      className="w-full flex flex-col justify-center items-center text-center space-y-5 p-10" 
     >
       <span className="flex items-center gap-1.5 text-[#BFF163]">
         <span className="w-1.5 h-1.5 rounded-full font-bold bg-[#BFF163] animate-pluse"></span>
@@ -15,7 +15,7 @@ const AboutMe = () => {
       </span>
       <VariableProximity
         label="I'm Albar Moerhamsa, a Software Engineer with over 4+ years of experience in crafting high-quality and impactful digital experiences. I have a strong focus on turning complex problems into elegant, user-friendly interfaces."
-        className={"max-w-7xl text-5xl font-bold tracking-tight leading-[50px]"}
+        className={"max-w-7xl text-2xl md:text-5xl font-bold tracking-tight md:leading-[50px]"}
         fromFontVariationSettings="'wght' 400, 'opsz' 9"
         toFontVariationSettings="'wght' 1000, 'opsz' 40"
         containerRef={containerRef}

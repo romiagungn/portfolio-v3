@@ -17,54 +17,62 @@ const ArrowRightIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
-const GoogleIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z"
-      fill="#4285F4"
-    />
-    <path
-      d="M12 23c3.24 0 5.95-1.08 7.93-2.91l-3.57-2.77c-1.08.73-2.45 1.16-4.36 1.16-3.31 0-6.11-2.25-7.12-5.26H1.29v2.86C3.26 20.44 7.25 23 12 23Z"
-      fill="#34A853"
-    />
-    <path
-      d="M4.88 14.24c-.21-.63-.32-1.3-.32-2s.11-1.37.32-2V7.38H1.29C.47 8.94 0 10.42 0 12s.47 3.06 1.29 4.62l3.59-2.86Z"
-      fill="#FBBC05"
-    />
-    <path
-      d="M12 4.5c1.77 0 3.35.61 4.62 1.83l3.15-3.15C17.95.91 15.24 0 12 0 7.25 0 3.26 2.56 1.29 6.13l3.59 2.86c1.01-3.01 3.81-5.26 7.12-5.26Z"
-      fill="#EA4335"
-    />
-  </svg>
+const WebAppIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6">
+        <defs>
+            <linearGradient id="webAppGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#60A5FA" /> 
+                <stop offset="100%" stopColor="#3B82F6" />
+            </linearGradient>
+        </defs>
+        {/* Mengganti path dengan bentuk monitor */}
+        <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            stroke="url(#webAppGradient)"
+            strokeWidth={1.5}
+            fill="none"
+            d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5zm15 12-4-4h-6l-4 4" 
+        />
+    </svg>
 );
 
-const AmazonIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M22.133 21.999H18.73v-1.534c0-1.897 1.48-2.883 3.14-2.883.22 0 .41.018.59.045V13.43c-.19-.027-.4-.045-.63-.045-3.34 0-5.63 2.11-5.63 5.11v3.499H1.866V3.999h14.266v9.19c.19-.027.4-.045.63-.045 3.34 0 5.63 2.11 5.63 5.11v3.744zM18.49 4.418c-1.34 0-2.43 1.09-2.43 2.43s1.09 2.43 2.43 2.43 2.43-1.09 2.43-2.43-1.09-2.43-2.43-2.43z" />
-  </svg>
+const MobileIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6">
+        <defs>
+            <linearGradient id="mobileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#F472B6" />
+                <stop offset="100%" stopColor="#EC4899" />
+            </linearGradient>
+        </defs>
+        <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            stroke="url(#mobileGradient)"
+            strokeWidth={1.5}
+            d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" 
+        />
+    </svg>
 );
 
-const MetaIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 21.6c-5.302 0-9.6-4.298-9.6-9.6S6.698 2.4 12 2.4s9.6 4.298 9.6 9.6-4.298 9.6-9.6 9.6z" />
-    <path d="M12 6.6c-3.313 0-6 2.687-6 6s2.687 6 6 6 6-2.687 6-6-2.687-6-6-6zm0 9.6c-1.988 0-3.6-1.612-3.6-3.6s1.612-3.6 3.6-3.6 3.6 1.612 3.6 3.6-1.612 3.6-3.6 3.6z" />
-  </svg>
+const ApiIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6">
+        <defs>
+            <linearGradient id="apiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#34D399" />
+                <stop offset="100%" stopColor="#10B981" />
+            </linearGradient>
+        </defs>
+        <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            stroke="url(#apiGradient)"
+            strokeWidth={1.5}
+            d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" 
+        />
+    </svg>
 );
+
 
 export default function HeroSection() {
   return (
@@ -85,7 +93,7 @@ export default function HeroSection() {
           </Link>
 
           {/* Headline Utama */}
-          <h1 className="max-w-4xl text-5xl font-bold tracking-tight sm:text-7xl">
+          <h1 className="md:max-w-4xl text-4xl font-bold tracking-tight md:text-7xl">
             Great ideas deserve great execution.
           </h1>
 
@@ -94,24 +102,25 @@ export default function HeroSection() {
             I believe that code is a medium for creativity. My expertise is in
             turning great ideas into beautiful, functional, and memorable
             digital experiences.{" "}
-            <span className="inline-flex items-center gap-1.5 font-semibold text-neutral-200">
-              <GoogleIcon /> Google
+            <br/>
+            <span className="text-sm mt-2 inline-flex items-center gap-1.5 font-semibold text-neutral-200">
+              <WebAppIcon /> Web App
             </span>
             ,{" "}
-            <span className="inline-flex items-center gap-1.5 font-semibold text-neutral-200">
-              <AmazonIcon /> amazon
+            <span className="text-sm mt-2 inline-flex items-center gap-1.5 font-semibold text-neutral-200">
+              <MobileIcon /> Mobile
             </span>
             , &{" "}
-            <span className="inline-flex items-center gap-1.5 font-semibold text-neutral-200">
-              <MetaIcon /> Meta
+            <span className="text-sm mt-2 inline-flex items-center gap-1.5 font-semibold text-neutral-200">
+              <ApiIcon /> APIS
             </span>
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-y-8 sm:gap-y-10 lg:flex-row lg:gap-x-12">
             <div className="flex flex-col items-center">
               <Link
-                to="/start"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-lime-300 px-8 py-4 text-lg font-semibold text-black shadow-sm transition-transform hover:scale-105"
+                to="/about"
+                className="cursor-target inline-flex items-center justify-center gap-2 rounded-full bg-lime-300 px-8 py-4 text-lg font-semibold text-black shadow-sm transition-transform hover:scale-105"
               >
                 <span>Know me more</span>
                 <ArrowRightIcon className="w-5 h-5" />
