@@ -2,159 +2,17 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "@remix-run/react";
 import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
 import { ThemeSwitcher } from "../ui/ThemeSwitcher";
-
-// --- Komponen Ikon SVG ---
-const ChevronDownIcon = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-    className={`w-5 h-5 transition-transform duration-200 ${className}`}
-  >
-    {" "}
-    <path
-      fillRule="evenodd"
-      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-      clipRule="evenodd"
-    />{" "}
-  </svg>
-);
-const ListIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    {" "}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M8.25 6.75h7.5M8.25 12h7.5m-7.5 5.25h7.5M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-    />{" "}
-  </svg>
-);
-const AtomIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    {" "}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M11.25 4.5A7.5 7.5 0 0 1 18.75 12a7.5 7.5 0 0 1-7.5 7.5A7.5 7.5 0 0 1 3.75 12a7.5 7.5 0 0 1 7.5-7.5Zm0 0v15m0-15h-1.5m1.5 0h1.5m-1.5 15h-1.5m1.5 0h1.5M5.625 7.5a1.5 1.5 0 0 0-3 0m3 0a1.5 1.5 0 0 1-3 0m0 0h-1.5m3 0h1.5m-1.5 9a1.5 1.5 0 0 0-3 0m3 0a1.5 1.5 0 0 1-3 0m0 0h-1.5m3 0h1.5"
-    />{" "}
-  </svg>
-);
-const CodeBracketIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    {" "}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
-    />{" "}
-  </svg>
-);
-const ArrowRightIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-5 h-5"
-  >
-    {" "}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-    />{" "}
-  </svg>
-);
-const SearchIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    {" "}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-    />{" "}
-  </svg>
-);
-const BellIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    {" "}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-    />{" "}
-  </svg>
-);
-const MenuIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    {" "}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-    />{" "}
-  </svg>
-);
-const XIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    {" "}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M6 18 18 6M6 6l12 12"
-    />{" "}
-  </svg>
-);
+import { useSpotlight } from "~/context/SpotlightContext";
+import {
+  ArrowRightIcon,
+  AtomIcon,
+  ChevronDownIcon,
+  CodeIcon,
+  ListIcon,
+  MenuIcon,
+  SearchIcon,
+  XIcon,
+} from "lucide-react";
 
 const interviewDropdownData = [
   {
@@ -180,7 +38,7 @@ const interviewDropdownData = [
     title: "Question formats",
     description:
       "Targeted practice in specific question formats for front end interviews",
-    icon: <CodeBracketIcon />,
+    icon: <CodeIcon />,
     tags: ["JavaScript functions", "UI coding", "Algo coding", "+2 more"],
     href: "/interviews/formats",
   },
@@ -193,6 +51,8 @@ export default function Navbar() {
     interviewDropdownData[0].id
   );
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const { setIsOpen } = useSpotlight();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -208,18 +68,21 @@ export default function Navbar() {
     }
   }, [isMenuOpen]);
 
+  // --- PERUBAHAN DI SINI ---
   const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
-    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+    `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${
       isActive
-        ? "bg-gray-100 text-gray-900 dark:bg-neutral-900 dark:text-white"
-        : "text-gray-500 hover:text-gray-900 dark:text-neutral-400 dark:hover:text-white"
+        ? "text-white" // Warna teks putih saat aktif
+        : "text-neutral-400 hover:text-white"
     }`;
+
   const mobileNavLinkClasses = ({ isActive }: { isActive: boolean }) =>
     `block px-3 py-2 rounded-md text-base font-medium ${
       isActive
         ? "bg-gray-100 text-gray-900 dark:bg-neutral-900 dark:text-white"
         : "text-gray-500 hover:text-gray-900 dark:text-neutral-400 dark:hover:text-white"
     }`;
+ 
   const dropdownVariants = {
     hidden: { opacity: 0, scale: 0.95, y: -10 },
     visible: {
@@ -235,6 +98,7 @@ export default function Navbar() {
       transition: { duration: 0.15, ease: "easeIn" as const },
     },
   };
+  
   const mobileDropdownVariants = {
     hidden: { opacity: 0, height: 0 },
     visible: {
@@ -248,19 +112,27 @@ export default function Navbar() {
       transition: { duration: 0.2, ease: easeIn },
     },
   };
+ 
   const handleMobileDropdownToggle = (dropdownName: string) => {
     setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
+ 
   const activeTabContent = interviewDropdownData.find(
     (item) => item.id === activeInterviewTab
   );
 
+  // Komponen untuk indikator aktif
+  const ActiveIndicator = () => (
+    <span className="relative flex h-2 w-2">
+      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#BFF163] opacity-75"></span>
+      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#BFF163]"></span>
+    </span>
+  );
+
   return (
     <>
-      {/* Container Navbar Tunggal yang berubah style */}
       <nav className="fixed w-full top-0 z-50">
         <motion.div
-          // Menggunakan layout animation untuk transisi ukuran dan bentuk yang mulus
           layout
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
           className={`
@@ -406,7 +278,7 @@ export default function Navbar() {
                           isActive: false,
                         })} flex items-center gap-1`}
                       >
-                        Prepare <ChevronDownIcon />
+                        Blogs <ChevronDownIcon />
                       </button>
                       <AnimatePresence>
                         {openDropdown === "prepare-desktop" && (
@@ -419,48 +291,52 @@ export default function Navbar() {
                           >
                             <div className="py-1">
                               <NavLink
-                                to="/prepare/courses"
+                                to="/blog/components"
                                 className="text-gray-700 dark:text-neutral-300 block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-700"
                               >
-                                Courses
+                                Components
                               </NavLink>
                               <NavLink
-                                to="/prepare/learning-paths"
+                                to="/blog/articles"
                                 className="text-gray-700 dark:text-neutral-300 block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-700"
                               >
-                                Learning Paths
+                                Articles
                               </NavLink>
                             </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
+                    {/* --- PERUBAHAN DI SINI --- */}
                     <NavLink to="/about" className={navLinkClasses}>
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-[#BFF163]"></span>
-                        About
-                      </span>
+                      {({ isActive }) => (
+                        <>
+                          {isActive && <ActiveIndicator />}
+                          <span>About</span>
+                        </>
+                      )}
+                    </NavLink>
+                    <NavLink to="/contact" className={navLinkClasses}>
+                      {({ isActive }) => (
+                        <>
+                          {isActive && <ActiveIndicator />}
+                          <span>Contact</span>
+                        </>
+                      )}
                     </NavLink>
                   </div>
                 </div>
               </div>
               <div className="block">
                 <div className="ml-4 flex items-center md:ml-6 gap-4">
+                  <ThemeSwitcher />
                   <button
                     type="button"
+                    onClick={() => setIsOpen(true)}
                     className="relative rounded-full p-1 text-gray-500 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white focus:outline-none"
                   >
                     <span className="sr-only">Search</span> <SearchIcon />{" "}
                   </button>
-                  <button
-                    type="button"
-                    className="relative rounded-full p-1 text-gray-500 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white focus:outline-none"
-                  >
-                    {" "}
-                    <span className="sr-only">View notifications</span>{" "}
-                    <BellIcon />{" "}
-                  </button>
-                  <ThemeSwitcher />
                 </div>
               </div>
               <div className="-mr-2 flex md:hidden">

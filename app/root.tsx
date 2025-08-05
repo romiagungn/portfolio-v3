@@ -17,6 +17,8 @@ import { ReactNode, useEffect } from "react";
 import { applyTheme } from "./utils/theme.client";
 import FloatingButton from "./components/ui/FloatingButton";
 import { Footer } from "./components/layout/Footer";
+import SpotlightSearch from "./components/layout/SpotlightSearch";
+import { SpotlightProvider } from "./context/SpotlightContext";
 
 export const links: LinksFunction = () => [
   { rel: "icon", href: favicon, type: "image/x-icon" },
@@ -86,9 +88,12 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Navbar />
-        <Outlet />
-        <FloatingButton />
+        <SpotlightProvider>
+          <Navbar />
+          <Outlet />
+          <FloatingButton />
+          <SpotlightSearch />
+        </SpotlightProvider>
         <ScrollRestoration />
         <Scripts />
         <Footer />

@@ -3,14 +3,15 @@ import ClickSpark from "../ui/ClickSpark";
 
 interface LayoutProps {
   children: ReactNode;
+  className?: string
 }
 
-export const PageLayout: FC<LayoutProps> = ({ children }) => {
+export const PageLayout: FC<LayoutProps> = ({ children, className }) => {
   return (
-    <div className="flex flex-col flex-grow min-h-screen">
+    <main className={`flex flex-col flex-grow min-h-screen ${className}`}>
       <ClickSpark>
         {children}
       </ClickSpark>
-    </div>
+    </main>
   );
 };

@@ -1,4 +1,4 @@
-import FeatureCard from "../ui/card/FeatureCard";
+import BlogCard from "../ui/card/BlogCard";
 import TargetCursor from "../ui/TargetCursor";
 import ShinyText from "../ui/text/ShinyText";
 
@@ -48,8 +48,9 @@ export default function Blogs() {
           {/* Grid untuk Kartu Fitur */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {features.map((feature, index) => (
-              <FeatureCard
+              <BlogCard
                 key={index}
+                id={index}
                 imageUrl={feature.imageUrl}
                 caption={feature.caption}
               />
