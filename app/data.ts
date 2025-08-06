@@ -6,6 +6,7 @@ import { matchSorter } from "match-sorter";
 // @ts-expect-error - no types, but it's a tiny function
 import sortBy from "sort-by";
 import invariant from "tiny-invariant";
+import qs from "./utils/querystring";
 
 type ContactMutation = {
   id?: string;
@@ -29,9 +30,30 @@ const fakeContacts = {
   records: {} as Record<string, ContactRecord>,
 
   async getAll(): Promise<ContactRecord[]> {
-    return Object.keys(fakeContacts.records)
-      .map((key) => fakeContacts.records[key])
-      .sort(sortBy("-createdAt", "last"));
+    try {
+      const response = await fetch("http://localhost:8081/api/v1/projects");
+
+      // Periksa apakah request berhasil (status code 200-299)
+      if (!response.ok) {
+        // Lemparkan error jika server memberikan respons yang tidak baik
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+
+      // Ubah respons menjadi format JSON
+      const result = await response.json();
+
+      // Asumsikan API Anda mengembalikan objek dengan properti 'data' yang berisi array proyek
+      // Jika API Anda langsung mengembalikan array, ganti 'result.data' menjadi 'result'
+      const projects = result.data || [];
+
+      // Kembalikan data yang sudah di-fetch dan diurutkan
+      // (Saya tetap menggunakan fungsi sort Anda, sesuaikan jika perlu)
+      return projects.sort(sortBy("-createdAt", "last"));
+    } catch (error) {
+      console.error("Failed to fetch projects:", error);
+      // Kembalikan array kosong jika terjadi error agar aplikasi tidak crash
+      return [];
+    }
   },
 
   async get(id: string): Promise<ContactRecord | null> {
@@ -62,6 +84,40 @@ const fakeContacts = {
 
 ////////////////////////////////////////////////////////////////////////////////
 // Handful of helper functions to be called from route loaders and actions
+type PaginationParams = {
+  page?: number
+  limit?: number
+}
+
+export type Project = {
+  id: string
+  repoUrl: string
+  responsibility: string
+  techStack: string
+  category: string
+  gifUrl: string
+  brief: string
+  result: string
+  url: string
+  year:string
+  description: string
+  thumbnail: string
+  title: string
+  createdAt: Date
+  updatedAt: Date
+};
+
+export async function getProjects({ page, limit }: PaginationParams) {
+   const queryString = qs({page, limit})
+  try {
+    const response = await fetch("http://localhost:8081/api/v1/projects" + queryString);
+
+    return response?.json();
+  } catch (error) {
+    return error;
+  }
+}
+
 export async function getContacts(query?: string | null) {
   await new Promise((resolve) => setTimeout(resolve, 500));
   let contacts = await fakeContacts.getAll();

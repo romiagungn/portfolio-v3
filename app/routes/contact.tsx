@@ -3,21 +3,16 @@ import type { ActionFunctionArgs } from "@remix-run/node";
 import { Form, Link } from "@remix-run/react";
 import { Instagram, Linkedin, MailIcon, Twitter } from "lucide-react";
 import { PageLayout } from "~/components/layout/PageLayout";
-// --- Fungsi Action Remix ---
-// Fungsi ini akan berjalan di server setiap kali formulir dikirimkan.
+
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
 
-  // Di aplikasi nyata, Anda akan mengirim email atau menyimpan data ini ke database.
-  // Untuk demo ini, kita hanya akan menampilkannya di konsol server.
   console.log("Form submission received:", data);
 
-  // Anda bisa mengembalikan pesan sukses atau error di sini.
   return { success: true, message: "Pesan Anda telah terkirim!" };
 }
 
-// --- Komponen Input ---
 interface FormInputProps
   extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
   label: string;
@@ -42,7 +37,6 @@ const FormInput: FC<FormInputProps> = ({ label, as = "input", ...props }) => {
   );
 };
 
-// --- Komponen Utama Halaman Kontak ---
 export default function ContactPage() {
   return (
     <PageLayout className="min-h-screen py-32 sm:py-32">
