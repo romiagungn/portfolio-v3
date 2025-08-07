@@ -2,9 +2,6 @@ import { Link } from "@remix-run/react";
 import { FC } from "react";
 
 interface ReviewCardProps {
-  companyLogoUrl: string;
-  companyName: string;
-  date: string;
   reviewText: string;
   user: {
     avatarUrl: string;
@@ -28,30 +25,12 @@ const LinkedInIcon = () => (
 
 
 const ReviewCard: FC<ReviewCardProps> = ({
-  companyLogoUrl,
-  companyName,
-  date,
   reviewText,
   user,
 }) => {
   return (
     // Menambahkan class untuk layout masonry
     <div className="max-w-md w-full rounded-2xl bg-white dark:bg-neutral-800 p-6 flex flex-col gap-6 dark:text-white font-sans break-inside-avoid mb-6">
-      {/* Header Kartu */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <img
-            src={companyLogoUrl}
-            alt={`${companyName} logo`}
-            className="w-10 h-10 rounded-full object-cover bg-white"
-          />
-          <span className="text-sm font-semibold dark:text-neutral-300">
-            Offer from {companyName}
-          </span>
-        </div>
-        <span className="text-sm dark:text-neutral-400">{date}</span>
-      </div>
-
       {/* Teks Ulasan */}
       <p className="text-base leading-relaxed dark:text-neutral-300">{reviewText}</p>
 
