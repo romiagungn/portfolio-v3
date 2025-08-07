@@ -1,16 +1,29 @@
-import type { FC } from "react";
-import type { ActionFunctionArgs } from "@remix-run/node";
-import { Form, Link } from "@remix-run/react";
-import { Instagram, Linkedin, MailIcon, Twitter } from "lucide-react";
+import { useEffect, type FC } from "react";
+import { type ActionFunctionArgs } from "@remix-run/node";
+import { Form, Link, useActionData } from "@remix-run/react";
+import { Dribbble, Github, Linkedin, MailIcon } from "lucide-react";
 import { PageLayout } from "~/components/layout/PageLayout";
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
-  const data = Object.fromEntries(formData);
 
-  console.log("Form submission received:", data);
+  const fullName = formData.get("fullName");
+  const email = formData.get("email");
+  const subject = formData.get("subject");
+  const message = formData.get("message");
 
-  return { success: true, message: "Pesan Anda telah terkirim!" };
+  const emailBody = `
+From: ${fullName} (${email})
+
+${message}
+  `;
+
+  return {
+    mailto: {
+      subject: subject,
+      message: emailBody.trim(),
+    },
+  };
 }
 
 interface FormInputProps
@@ -38,6 +51,22 @@ const FormInput: FC<FormInputProps> = ({ label, as = "input", ...props }) => {
 };
 
 export default function ContactPage() {
+  const actionData = useActionData<typeof action>();
+  useEffect(() => {
+    if (actionData?.mailto) {
+      const { subject, message } = actionData.mailto;
+
+      const recipientEmail = "moerhamsa@gmail.com";
+
+      const encodedSubject = encodeURIComponent(subject as string);
+      const encodedMessage = encodeURIComponent(message);
+
+      const mailtoUrl = `mailto:${recipientEmail}?subject=${encodedSubject}&body=${encodedMessage}`;
+
+      window.location.href = mailtoUrl;
+    }
+  }, [actionData]);
+
   return (
     <PageLayout className="min-h-screen py-32 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -66,6 +95,13 @@ export default function ContactPage() {
               required
             />
             <FormInput
+              label="Subject"
+              name="subject"
+              type="text"
+              placeholder="What is this about?"
+              required
+            />
+            <FormInput
               label="Message"
               name="message"
               as="textarea"
@@ -84,11 +120,6 @@ export default function ContactPage() {
           {/* Kolom Kanan: Kartu Info */}
           <div className="flex flex-col">
             <div className="rounded-2xl dark:bg-neutral-900 border dark:border-neutral-800 p-8">
-              <div className="flex items-center gap-2">
-                <span className="text-sm dark:text-neutral-300">
-                  Available for work
-                </span>
-              </div>
               <img
                 src="/images/avatar.png"
                 alt="Foto profil"
@@ -101,28 +132,36 @@ export default function ContactPage() {
               </p>
               <div className="mt-6 flex gap-6 text-neutral-500">
                 <Link
-                  to="#"
+                  to="https://www.linkedin.com/in/albarms/"
+                  target="_blank"
+                  rel="noreferrer"
                   className="dark:hover:text-white transition-colors"
                 >
                   <Linkedin />
                 </Link>
                 <Link
-                  to="#"
+                  to="https://github.com/albarmo"
+                  target="_blank"
+                  rel="noreferrer"
                   className="dark:hover:text-white transition-colors"
                 >
-                  <Instagram />
+                  <Github />
                 </Link>
                 <Link
-                  to="mailto:email@example.com"
+                  to="mailto:moerhamsa@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
                   className="dark:hover:text-white transition-colors"
                 >
                   <MailIcon />
                 </Link>
                 <Link
-                  to="#"
+                  to="https://dribbble.com/albarms"
+                  target="_blank"
+                  rel="noreferrer"
                   className="dark:hover:text-white transition-colors"
                 >
-                  <Twitter />
+                  <Dribbble />
                 </Link>
               </div>
             </div>
