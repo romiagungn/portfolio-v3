@@ -1,0 +1,8 @@
+# File: netlify.toml
+
+[build]
+  # Perintah ini akan menjalankan "vite build && vite build --ssr" dari package.json
+  command = "npm run build"
+  
+  # Folder yang berisi aset statis dan file _redirects yang dibuat otomatis
+  publish = "public"

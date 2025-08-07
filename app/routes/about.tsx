@@ -1,6 +1,5 @@
 import type { FC } from "react";
 import AreaOfExpertise from "~/components/section/AreaOfExpertise";
-import CallToAction from "~/components/ui/cta";
 
 interface SkillCardProps {
   title: string;
@@ -82,8 +81,6 @@ export default function AboutMePage() {
           </div>
         </section>
       </div>
-      {/* Bagian 4: Ajakan Bertindak (CTA) */}
-      <CallToAction />
     </div>
   );
 }
