@@ -307,7 +307,22 @@ export default function Navbar() {
                         )}
                       </AnimatePresence>
                     </div> */}
-                    
+                    <NavLink to="/projects" className={navLinkClasses}>
+                      {({ isActive }) => (
+                        <>
+                          {isActive && <ActiveIndicator />}
+                          <span>Portfolio</span>
+                        </>
+                      )}
+                    </NavLink>
+                    <NavLink to="/blogs" className={navLinkClasses}>
+                      {({ isActive }) => (
+                        <>
+                          {isActive && <ActiveIndicator />}
+                          <span>Blogs</span>
+                        </>
+                      )}
+                    </NavLink>
                     <NavLink to="/about" className={navLinkClasses}>
                       {({ isActive }) => (
                         <>
@@ -457,11 +472,17 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
               </div> */}
-              <NavLink to="/about" className={mobileNavLinkClasses}>
+              <NavLink to="/about" onClick={() => setIsMenuOpen(false)} className={mobileNavLinkClasses}>
                 About
               </NavLink>
-              <NavLink to="/contact" className={mobileNavLinkClasses}>
+              <NavLink to="/contact" onClick={() => setIsMenuOpen(false)} className={mobileNavLinkClasses}>
                 Contact
+              </NavLink>
+                <NavLink to="/projects" onClick={() => setIsMenuOpen(false)} className={mobileNavLinkClasses}>
+                Portfolio
+              </NavLink>
+              <NavLink to="/blogs" onClick={() => setIsMenuOpen(false)} className={mobileNavLinkClasses}>
+                Blogs
               </NavLink>
               {/* <NavLink to="/pricing" className={mobileNavLinkClasses}>
                 Pricing

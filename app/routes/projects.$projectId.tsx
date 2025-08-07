@@ -2,18 +2,13 @@ import { useLoaderData, Link } from "@remix-run/react";
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { PageLayout } from "~/components/layout/PageLayout";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
-import { BACKUP_PROJECTS, getProject, Project } from "~/services/project.services";
+import { getProject, Project } from "~/services/project.services";
 import TechTag from "~/components/ui/TechTag";
 import invariant from "tiny-invariant";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.projectId, "Missing projectId param");
   const project: Project = await getProject(params.projectId);
-  
-  const result = project
-
-  console.log("result <<<>>>>", BACKUP_PROJECTS,"res", result)
-
 
   return { project: project };
 };

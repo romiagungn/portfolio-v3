@@ -26,7 +26,7 @@ const ProjectsPage = () => {
               Workspaces
             </span>
             <ShinyText
-              text="Selected Projects"
+              text="Portfolio"
               disabled={false}
               speed={3}
               className="text-2xl font-bold tracking-tight sm:text-4xl"
