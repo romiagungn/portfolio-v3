@@ -73,12 +73,12 @@ export default function FloatingButton() {
               {/* Bagian Tengah (Teks Aksi) */}
               <div className="max-w-sm text-xs dark:text-neutral-200">
                 <p>
-                  Complete simple social tasks.{" "}
+                  New project was added
                   <Link
-                    to="/social-tasks"
+                    to="/projects/e3dfd84f-75ec-4fbf-9d84-930a1e96855f"
                     className="font-semibold dark:text-white hover:underline"
                   >
-                    Check it out
+                    Check it out {" "}
                     <ArrowRightIcon />
                   </Link>
                 </p>

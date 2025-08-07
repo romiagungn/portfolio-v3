@@ -4,52 +4,52 @@ import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
 import { ThemeSwitcher } from "../ui/ThemeSwitcher";
 import { useSpotlight } from "~/context/SpotlightContext";
 import {
-  ArrowRightIcon,
-  AtomIcon,
+  // ArrowRightIcon,
+  // AtomIcon,
   ChevronDownIcon,
-  CodeIcon,
-  ListIcon,
+  // CodeIcon,
+  // ListIcon,
   MenuIcon,
   SearchIcon,
   XIcon,
 } from "lucide-react";
 
-const interviewDropdownData = [
-  {
-    id: "all-questions",
-    title: "All practice questions",
-    description:
-      "The largest question bank of 500+ practice questions for front end interviews",
-    icon: <ListIcon />,
-    tags: ["Coding", "System design", "Quiz"],
-    href: "/interviews/all-questions",
-  },
-  {
-    id: "frameworks",
-    title: "Frameworks / languages",
-    description:
-      "Targeted practice in specific front end frameworks and languages",
-    icon: <AtomIcon />,
-    tags: ["React", "TypeScript", "Vue", "Angular", "Svelte", "+3 more"],
-    href: "/interviews/frameworks",
-  },
-  {
-    id: "formats",
-    title: "Question formats",
-    description:
-      "Targeted practice in specific question formats for front end interviews",
-    icon: <CodeIcon />,
-    tags: ["JavaScript functions", "UI coding", "Algo coding", "+2 more"],
-    href: "/interviews/formats",
-  },
-];
+// const interviewDropdownData = [
+//   {
+//     id: "all-questions",
+//     title: "All practice questions",
+//     description:
+//       "The largest question bank of 500+ practice questions for front end interviews",
+//     icon: <ListIcon />,
+//     tags: ["Coding", "System design", "Quiz"],
+//     href: "/interviews/all-questions",
+//   },
+//   {
+//     id: "frameworks",
+//     title: "Frameworks / languages",
+//     description:
+//       "Targeted practice in specific front end frameworks and languages",
+//     icon: <AtomIcon />,
+//     tags: ["React", "TypeScript", "Vue", "Angular", "Svelte", "+3 more"],
+//     href: "/interviews/frameworks",
+//   },
+//   {
+//     id: "formats",
+//     title: "Question formats",
+//     description:
+//       "Targeted practice in specific question formats for front end interviews",
+//     icon: <CodeIcon />,
+//     tags: ["JavaScript functions", "UI coding", "Algo coding", "+2 more"],
+//     href: "/interviews/formats",
+//   },
+// ];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [activeInterviewTab, setActiveInterviewTab] = useState(
-    interviewDropdownData[0].id
-  );
+  // const [activeInterviewTab, setActiveInterviewTab] = useState(
+  //   interviewDropdownData[0].id
+  // );
   const [isScrolled, setIsScrolled] = useState(false);
 
   const { setIsOpen } = useSpotlight();
@@ -83,21 +83,21 @@ export default function Navbar() {
         : "text-gray-500 hover:text-gray-900 dark:text-neutral-400 dark:hover:text-white"
     }`;
  
-  const dropdownVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: -10 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: { duration: 0.2, ease: "easeOut" as const },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0.95,
-      y: -10,
-      transition: { duration: 0.15, ease: "easeIn" as const },
-    },
-  };
+  // const dropdownVariants = {
+  //   hidden: { opacity: 0, scale: 0.95, y: -10 },
+  //   visible: {
+  //     opacity: 1,
+  //     scale: 1,
+  //     y: 0,
+  //     transition: { duration: 0.2, ease: "easeOut" as const },
+  //   },
+  //   exit: {
+  //     opacity: 0,
+  //     scale: 0.95,
+  //     y: -10,
+  //     transition: { duration: 0.15, ease: "easeIn" as const },
+  //   },
+  // };
   
   const mobileDropdownVariants = {
     hidden: { opacity: 0, height: 0 },
@@ -117,9 +117,9 @@ export default function Navbar() {
     setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
  
-  const activeTabContent = interviewDropdownData.find(
-    (item) => item.id === activeInterviewTab
-  );
+  // const activeTabContent = interviewDropdownData.find(
+  //   (item) => item.id === activeInterviewTab
+  // );
 
   // Komponen untuk indikator aktif
   const ActiveIndicator = () => (
