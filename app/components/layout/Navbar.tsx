@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "@remix-run/react";
-import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
+import { motion, AnimatePresence} from "framer-motion";
 import { ThemeSwitcher } from "../ui/ThemeSwitcher";
 import { useSpotlight } from "~/context/SpotlightContext";
 import {
   // ArrowRightIcon,
   // AtomIcon,
-  ChevronDownIcon,
+  // ChevronDownIcon,
   // CodeIcon,
   // ListIcon,
   MenuIcon,
@@ -46,7 +46,7 @@ import {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  // const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   // const [activeInterviewTab, setActiveInterviewTab] = useState(
   //   interviewDropdownData[0].id
   // );
@@ -64,7 +64,7 @@ export default function Navbar() {
 
   useEffect(() => {
     if (!isMenuOpen) {
-      setOpenDropdown(null);
+      // setOpenDropdown(null);
     }
   }, [isMenuOpen]);
 
@@ -99,23 +99,23 @@ export default function Navbar() {
   //   },
   // };
   
-  const mobileDropdownVariants = {
-    hidden: { opacity: 0, height: 0 },
-    visible: {
-      opacity: 1,
-      height: "auto",
-      transition: { duration: 0.3, ease: easeOut },
-    },
-    exit: {
-      opacity: 0,
-      height: 0,
-      transition: { duration: 0.2, ease: easeIn },
-    },
-  };
+  // const mobileDropdownVariants = {
+  //   hidden: { opacity: 0, height: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     height: "auto",
+  //     transition: { duration: 0.3, ease: easeOut },
+  //   },
+  //   exit: {
+  //     opacity: 0,
+  //     height: 0,
+  //     transition: { duration: 0.2, ease: easeIn },
+  //   },
+  // };
  
-  const handleMobileDropdownToggle = (dropdownName: string) => {
-    setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
-  };
+  // const handleMobileDropdownToggle = (dropdownName: string) => {
+  //   setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
+  // };
  
   // const activeTabContent = interviewDropdownData.find(
   //   (item) => item.id === activeInterviewTab
@@ -369,7 +369,7 @@ export default function Navbar() {
           >
             {/* Konten menu mobile Anda yang sudah ada */}
             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-              <div>
+              {/* <div>
                 <button
                   onClick={() =>
                     handleMobileDropdownToggle("interviews-mobile")
@@ -416,8 +416,8 @@ export default function Navbar() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <button
                   onClick={() => handleMobileDropdownToggle("prepare-mobile")}
                   type="button"
@@ -456,16 +456,16 @@ export default function Navbar() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
-              <NavLink to="/companies" className={mobileNavLinkClasses}>
-                Companies
+              </div> */}
+              <NavLink to="/about" className={mobileNavLinkClasses}>
+                About
               </NavLink>
-              <NavLink to="/salaries" className={mobileNavLinkClasses}>
-                Salaries
+              <NavLink to="/contact" className={mobileNavLinkClasses}>
+                Contact
               </NavLink>
-              <NavLink to="/pricing" className={mobileNavLinkClasses}>
+              {/* <NavLink to="/pricing" className={mobileNavLinkClasses}>
                 Pricing
-              </NavLink>
+              </NavLink> */}
             </div>
           </motion.div>
         )}
