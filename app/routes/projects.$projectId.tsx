@@ -2,13 +2,18 @@ import { useLoaderData, Link } from "@remix-run/react";
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { PageLayout } from "~/components/layout/PageLayout";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
-import { getProject, Project } from "~/services/project.services";
+import { BACKUP_PROJECTS, getProject, Project } from "~/services/project.services";
 import TechTag from "~/components/ui/TechTag";
 import invariant from "tiny-invariant";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.projectId, "Missing projectId param");
-  const project:Project = await getProject(params.projectId);
+  const project: Project = await getProject(params.projectId);
+  
+  const result = project
+
+  console.log("result <<<>>>>", BACKUP_PROJECTS,"res", result)
+
 
   return { project: project };
 };
@@ -16,8 +21,8 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 export default function ProjectDetail() {
   const { project } = useLoaderData<typeof loader>();
 
-  const techStack = JSON.parse(project.techStack)
-  const responsibilities = JSON.parse(project.responsibility)
+  const techStack = project ? JSON.parse(project?.techStack) : []
+  const responsibilities = project ? JSON.parse(project?.responsibility) : []
 
   return (
     <PageLayout>
@@ -54,14 +59,14 @@ export default function ProjectDetail() {
 
                 {/* Kolom Kanan: Tombol, Peran, dan Klien */}
                 <div className="flex flex-col items-start md:items-end justify-between">
-                  <Link
+                  {/* <Link
                     to={project?.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full border border-neutral-600 px-8 py-3 text-base font-medium hover:bg-neutral-800 transition-colors"
                   >
                     Live 
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
 
@@ -77,13 +82,13 @@ export default function ProjectDetail() {
           {/* Main Image */}
           <div className="w-full aspect-video rounded-2xl overflow-hidden bg-gray-100 dark:bg-neutral-800 shadow-lg">
             <img
-              src={project?.gifUrl ?? project.thumbnail}
-              alt={project.title}
+              src={project?.thumbnail}
+              alt={project?.title}
               className="w-full h-full object-cover"
             />
           </div>
 
-          {/* Live Site & Repo Links */}
+          {/* Live Site Links */}
           <div className="flex justify-center gap-4 mt-8">
             <Link
               to={project?.url}
@@ -92,14 +97,6 @@ export default function ProjectDetail() {
               rel="noreferrer"
             >
               View Live Site <ArrowRightIcon />
-            </Link>
-            <Link
-              to={project?.repoUrl}
-              target="_blank"
-              className="inline-flex items-center rounded-md bg-gray-100 dark:bg-neutral-800 px-4 py-2 text-sm font-semibold hover:bg-gray-200 dark:hover:bg-neutral-700"
-              rel="noreferrer"
-            >
-              Source Code
             </Link>
           </div>
 
@@ -136,7 +133,7 @@ export default function ProjectDetail() {
                   Brief
                 </h2>
                 <p className="text-lg leading-8 text-gray-600 dark:text-neutral-300">
-                  {project.brief}
+                  {project?.brief}
                 </p>
               </section>
 
@@ -156,7 +153,7 @@ export default function ProjectDetail() {
                   Result
                 </h2>
                 <p className="text-lg leading-8 text-gray-600 dark:text-neutral-300">
-                  {project.result}
+                  {project?.result}
                 </p>
               </section>
             </main>
