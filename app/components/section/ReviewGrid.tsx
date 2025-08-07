@@ -32,7 +32,7 @@ const reviews = [
       "Sangat profesional dan hasilnya melebihi ekspektasi. Albar mampu bekerja dengan baik dalam tim maupun secara mandiri. Kualitas kodenya bersih dan terstruktur.",
     user: {
       avatarUrl: "https://placehold.co/48x48/34D399/FFFFFF?text=RA",
-      name: "Romie Agung Nugroho",
+      name: "Romie Agung Nugraha",
       title: "Senior Frontend Engineer",
       location: "Jakarta, Indonesia",
       linkedinUrl: "#",

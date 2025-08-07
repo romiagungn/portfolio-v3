@@ -46,32 +46,21 @@ export default function AboutMePage() {
         {/* Bagian 2: Narasi / Cerita */}
         <div className="mx-auto  text-lg leading-8 text-gray-700 dark:text-neutral-300 space-y-6">
           <p>
-            Perjalanan saya ke dunia pengembangan web dimulai dari ketertarikan
-            sederhana pada bagaimana sebuah ide bisa diubah menjadi sesuatu yang
-            interaktif di layar. Bagi saya, frontend development adalah
-            perpaduan sempurna antara logika pemecahan masalah dan kreativitas
-            desain. Saya menemukan kepuasan luar biasa dalam membangun produk
-            yang tidak hanya solid secara teknis, tetapi juga mudah dan
-            menyenangkan untuk digunakan oleh orang banyak.
+            My journey into web development began with a simple curiosity about how an idea could be transformed into something interactive on a screen. For me, frontend development is the perfect blend of problem-solving logic and design creativity. I find immense satisfaction in building products that are not only technically solid but also easy and enjoyable for many people to use.
           </p>
           <p>
-            Dengan pengalaman lebih dari 4 tahun, saya berfokus pada
-            penulisan kode yang bersih, dapat dipelihara, dan terukur. Saya
-            percaya bahwa performa web dan aksesibilitas bukanlah fitur
-            tambahan, melainkan inti dari pengalaman pengguna yang hebat. Saya
-            selalu antusias untuk mempelajari teknologi baru dan berkolaborasi
-            dalam tim untuk mewujudkan visi bersama menjadi kenyataan.
+            With over 4 years of experience, I focus on writing clean, maintainable, and scalable code. I believe that web performance and accessibility are not afterthoughts but are core to a great user experience. I am always enthusiastic about learning new technologies and collaborating within a team to turn a shared vision into reality.
           </p>
         </div>
 
         {/* Bagian 3: Keahlian */}
         <section className="mt-24">
           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white">
-            Keahlian & Teknologi
+            Technology Stack
           </h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
             <SkillCard
-              title="Bahasa & Framework"
+              title="Language & Framework"
               skills={[...skills.languages, ...skills.frameworks]}
             />
             <SkillCard

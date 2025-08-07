@@ -15,29 +15,28 @@ const features: Feature[] = [
     icon: <Monitor />,
     title: "Web Apps",
     description:
-      "Get connected with a mentor that will help you pave your career path.",
+      "I build dynamic and responsive web applications that go beyond static websites.",
   },
   {
     icon: <Smartphone />,
     title: "Mobile Apps",
     description:
-      "Get Internships and Job opportunities and gain experience while you learn.",
+      "Applications for iOS & Android, specifically designed for optimal performance and a deeply integrated mobile user experience.",
   },
   {
     icon: <PaintRoller />,
     title: "UI/UX",
     description:
-      "Get Free resources related to Designing and Development from the community.",
+      "Designing interfaces that are not only visually beautiful (UI) but also effortless and enjoyable to use (UX).",
   },
   {
     icon: <Network />,
     title: "API",
     description:
-      "Get your portfolio and projects reviewed by industry experts and mentors.",
+      "A reliable and secure bridge connecting frontend applications (web/mobile) to backend servers and data.",
   },
 ];
 
-// --- Komponen Kartu Fitur Individual ---
 const FeatureCard: FC<Feature> = ({ icon, title, description }) => (
   <div className="rounded-2xl dark:bg-neutral-800/50 p-6 border border-neutral-700/80">
     <div className="flex items-center justify-center w-12 h-12 rounded-lg dark:bg-neutral-800 dark:border dark:border-neutral-700 text-[#BFF163]">
@@ -48,20 +47,17 @@ const FeatureCard: FC<Feature> = ({ icon, title, description }) => (
   </div>
 );
 
-// --- Komponen Utama ---
 export default function AreaOfExpertise() {
   return (
     <section className="dark:text-white py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Kolom Kiri: Grid Kartu Fitur */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((feature) => (
               <FeatureCard key={feature.title} {...feature} />
             ))}
           </div>
 
-          {/* Kolom Kanan: Deskripsi Komunitas */}
           <div className="flex flex-col">
             <div className="flex items-center gap-2 text-sm font-medium text-[#BFF163]">
               <span>COMMUNITY WORK</span>
@@ -81,7 +77,6 @@ export default function AreaOfExpertise() {
               for our members to grow as they learn.
             </p>
 
-            {/* Statistik */}
             <div className="mt-10 flex gap-12">
               <div className="flex flex-col">
                 <span className="text-4xl font-bold">
