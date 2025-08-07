@@ -175,7 +175,7 @@ export default function Navbar() {
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    <div
+                    {/* <div
                       className="relative"
                       onMouseEnter={() => setOpenDropdown("interviews-desktop")}
                       onMouseLeave={() => setOpenDropdown(null)}
@@ -266,8 +266,8 @@ export default function Navbar() {
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    </div>
-                    <div
+                    </div> */}
+                    {/* <div
                       className="relative"
                       onMouseEnter={() => setOpenDropdown("prepare-desktop")}
                       onMouseLeave={() => setOpenDropdown(null)}
@@ -306,8 +306,8 @@ export default function Navbar() {
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    </div>
-                    {/* --- PERUBAHAN DI SINI --- */}
+                    </div> */}
+                    
                     <NavLink to="/about" className={navLinkClasses}>
                       {({ isActive }) => (
                         <>
