@@ -132,7 +132,7 @@ export default function ContactPage() {
               </p>
               <div className="mt-6 flex gap-6 text-neutral-500">
                 <Link
-                  to="https://www.linkedin.com/in/albarms/"
+                  to="https://www.linkedin.com/in/romie-agung-nugraha-6058b3162/"
                   target="_blank"
                   rel="noreferrer"
                   className="dark:hover:text-white transition-colors"
@@ -140,7 +140,7 @@ export default function ContactPage() {
                   <Linkedin />
                 </Link>
                 <Link
-                  to="https://github.com/albarmo"
+                  to="https://github.com/romiagungn"
                   target="_blank"
                   rel="noreferrer"
                   className="dark:hover:text-white transition-colors"
@@ -148,7 +148,7 @@ export default function ContactPage() {
                   <Github />
                 </Link>
                 <Link
-                  to="mailto:moerhamsa@gmail.com"
+                  to="#"
                   target="_blank"
                   rel="noreferrer"
                   className="dark:hover:text-white transition-colors"
@@ -156,7 +156,7 @@ export default function ContactPage() {
                   <MailIcon />
                 </Link>
                 <Link
-                  to="https://dribbble.com/albarms"
+                  to="#"
                   target="_blank"
                   rel="noreferrer"
                   className="dark:hover:text-white transition-colors"

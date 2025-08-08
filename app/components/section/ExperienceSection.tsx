@@ -3,7 +3,7 @@ import ProfileCard from "../ui/card/ProfileCard";
 const ExperienceSection = () => {
   const user = {
     imageUrl: "/images/avatar.png",
-    name: "Albar Moerhamsa",
+    name: "Romie Agung Nugraha",
     title: "Frontend Engineer",
     description: "A Product Designer who focuses on simplicity & usability.",
     followers: 312,

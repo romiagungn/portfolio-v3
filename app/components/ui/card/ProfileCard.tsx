@@ -97,7 +97,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
                 'url(\'data:image/svg+xml,%3Csvg width="5" height="5" viewBox="0 0 5 5" stroke-width="0.5" stroke="%23ff9a24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M-1 5L5 -1M3 6L6 3"/%3E%3C/svg%3E\')',
             }}
           />
-          <Link to={"https://www.linkedin.com/in/albarms"} target="_blank" rel="noreferrer">
+          <Link to={"https://www.linkedin.com/in/romie-agung-nugraha-6058b3162/"} target="_blank" rel="noreferrer">
             <button
               className={`
                 ${buttonBaseClasses} ${buttonVariantClasses[variant]}

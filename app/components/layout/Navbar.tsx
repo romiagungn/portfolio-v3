@@ -164,12 +164,12 @@ export default function Navbar() {
                     <section className="flex justify-center items-center space-x-2.5">
                       <img
                         src="/logo.svg"
-                        alt="Albarmo"
+                        alt="Romian"
                         width="16"
                         height="16"
                         className="invert dark:invert-0"
                       />
-                      <h1 className="text-lg font-bold">albarmox</h1>
+                      <h1 className="text-lg font-bold">romian</h1>
                     </section>
                   </Link>
                 </div>
