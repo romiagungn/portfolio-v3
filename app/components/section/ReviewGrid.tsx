@@ -29,10 +29,10 @@ const reviews = [
   {
     id: 3,
     reviewText:
-      "Sangat profesional dan hasilnya melebihi ekspektasi. Albar mampu bekerja dengan baik dalam tim maupun secara mandiri. Kualitas kodenya bersih dan terstruktur.",
+      "Sangat profesional dan hasilnya melebihi ekspektasi. Romie mampu bekerja dengan baik dalam tim maupun secara mandiri. Kualitas kodenya bersih dan terstruktur.",
     user: {
       avatarUrl: "https://placehold.co/48x48/34D399/FFFFFF?text=RA",
-      name: "Romie Agung Nugraha",
+      name: "Albar Moerhamsa",
       title: "Senior Frontend Engineer",
       location: "Jakarta, Indonesia",
       linkedinUrl: "#",
@@ -65,7 +65,7 @@ const reviews = [
   {
     id: 6,
     reviewText:
-      "Selalu mau belajar hal baru dan teknologi baru yang membuat project semakin optimal. Albar mempunyai skill komunikasi yang baik antar tim. Kualitas kodenya sangat baik, sangat mementingkan kode yang terstruktur dan rapih",
+      "Selalu mau belajar hal baru dan teknologi baru yang membuat project semakin optimal. Romie mempunyai skill komunikasi yang baik antar tim. Kualitas kodenya sangat baik, sangat mementingkan kode yang terstruktur dan rapih",
     user: {
       avatarUrl: "https://placehold.co/48x48/F472B6/FFFFFF?text=AY",
       name: "Ariel Arliyanus",

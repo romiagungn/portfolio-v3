@@ -3,6 +3,8 @@ node_modules
 /.cache
 /build
 .env
+.idea
+.vscode
 
 # Local Netlify folder
 .netlify
